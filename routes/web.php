@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BillingController;
+use App\Http\Controllers\TweetController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('tweet')->group(function () {
+    Route::get('/', [TweetController::class, 'index'])->name('tweet.index');
+    Route::post('tweet/{userId}', [TweetController::class, 'post'])->name('tweet.post');
+    Route::delete('tweet/{userId}/{tweetId}', [TweetController::class, 'delete'])->name('tweet.delete');
 });

@@ -2,15 +2,42 @@
 
 namespace Controllers;
 
-use PHPUnit\Framework\TestCase;
+use tests\TestCase;
 
 class TweetControllerTest extends TestCase
 {
+
     /**
-     * A basic unit test example.
+     * setUp
+     *
+     * @return void
      */
-    public function test_example(): void
+    public function setUp(): void
     {
-        $this->assertTrue(true);
+        parent::setUp();
+        //DB初期化
+        $this->truncateTweetDatabase();
+    }
+
+    /**
+     * tearDown
+     *
+     * @return void
+     */
+    protected function tearDown(): void
+    {
+        //DB初期化
+        $this->truncateTweetDatabase();
+        parent::tearDown();
+    }
+
+    /**
+     * tweetの一覧を取得（0レコード）
+     *
+     * @return void
+     */
+    public function testIndexAsNotLogin(): void
+    {
+
     }
 }
