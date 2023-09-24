@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Unit;
+namespace Controllers;
 
 use PHPUnit\Framework\TestCase;
 
-class TweetRepositoryTest extends TestCase
+class BillingControllerTest extends TestCase
 {
     /**
      * A basic unit test example.

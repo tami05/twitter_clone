@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('content', 128);
             $table->unsignedBigInteger('user_id');
-            $table->timestamp('created_at')->useCurrent();
+            $table->timestamps();
 
             // 外部キー制約
             $table->foreign('user_id')->references('id')->on('users');

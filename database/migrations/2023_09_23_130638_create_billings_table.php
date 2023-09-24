@@ -12,14 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('billings', function (Blueprint $table) {
+
             $table->id();
-            $table->unsignedBigInteger('user_id');
             $table->tinyInteger('is_billing')->default(0)->comment('無課金：0／課金：1');
             $table->timestamps();
             $table->softDeletes();
 
-            // 外部キー制約
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

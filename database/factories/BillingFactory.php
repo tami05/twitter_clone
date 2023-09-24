@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,13 @@ class BillingFactory extends Factory
      */
     public function definition(): array
     {
+        // 日本語のFakerを使用
+        $faker = \Faker\Factory::create('ja_JP');
+
         return [
-            //
+            'is_billing' => $faker->boolean(5) ? 1 : 0,
+            'created_at' => $faker->dateTimeThisYear(),
+            'updated_at' => $faker->dateTimeThisYear(),
         ];
     }
 }
